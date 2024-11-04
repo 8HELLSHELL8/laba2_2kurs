@@ -32,21 +32,6 @@ public:
         }
     }
 
-
-    //Myvector(initializer_list<T> init_list)
-    //{
-    //    size_of_Vec = init_list.size();  // Размер массива соответствует количеству элементов
-    //    memory_size = size_of_Vec * 2;
-    //    arr = new T[memory_size];
-
-    //    int i = 0;
-    //    for (const T& item : init_list)
-    //    {
-    //        arr[i++] = item;  // Копируем элементы из списка
-    //    }
-    //}
-
-
     Myvector<T>& operator=(const Myvector& other) {
         if (this != &other) { // Don't we assign the object to ourselves
             delete[] arr;
