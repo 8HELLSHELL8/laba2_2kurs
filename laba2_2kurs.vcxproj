@@ -127,7 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="23Zadanie.cpp" />
+    <ClCompile Include="2Zadanie.cpp" />
+    <ClCompile Include="3Zadanie.cpp" />
     <ClCompile Include="4Zadanie.cpp" />
     <ClCompile Include="5Zadanie.cpp" />
     <ClCompile Include="1Zadanie.cpp" />
@@ -136,8 +137,12 @@
   <ItemGroup>
     <ClInclude Include="Hashtable.h" />
     <ClInclude Include="library.h" />
+    <ClInclude Include="Set.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="vector.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="file.set" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="23Zadanie.cpp">
+    <ClCompile Include="2Zadanie.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="4Zadanie.cpp">
@@ -28,6 +28,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="6Zadanie.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="3Zadanie.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,5 +47,13 @@
     <ClInclude Include="vector.h">
       <Filter>Файлы ресурсов</Filter>
     </ClInclude>
+    <ClInclude Include="Set.h">
+      <Filter>Файлы ресурсов</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="file.set">
+      <Filter>Исходные файлы</Filter>
+    </None>
   </ItemGroup>
 </Project>
