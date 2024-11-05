@@ -56,7 +56,7 @@ public:
     }
 
 
-    T pop()
+    void pop()
     {
         if (is_empty())
         {
