@@ -6,20 +6,23 @@
 using namespace std;
 
 
-void processInput(const string& input) {
+void processInput(const string& input) 
+{
 
    Hashtable<string, int> hash(10);
-   Myvector<char> seenChars; // ��������� ��� ������������ ����������� ��������
+   Myvector<char> seenChars;
 
    string currentSubstring;
    int length = 0;
 
-   for (char ch : input) {
+   for (char ch : input) 
+   {
 
-       // ���� ������ ��� ����������, ��������� ������� ��������� � ���-�������
-       if (seenChars.contains(seenChars, ch)) {
+       if (seenChars.contains(seenChars, ch)) 
+       {
 
-           if (!currentSubstring.empty()) {
+           if (!currentSubstring.empty()) 
+           {
                hash[currentSubstring] = length;
            }
 
@@ -27,7 +30,8 @@ void processInput(const string& input) {
            length = 0;
            seenChars = Myvector<char>();
        }
-       else {
+       else 
+       {
 
            currentSubstring += ch;
            seenChars.MPUSH(ch);
@@ -35,7 +39,8 @@ void processInput(const string& input) {
        }
    }
 
-   if (!currentSubstring.empty()) {
+   if (!currentSubstring.empty()) 
+   {
        hash[currentSubstring] = length;
    }
 
@@ -49,7 +54,8 @@ void processInput(const string& input) {
    cout << "The longest line: \'" << longestKey << "\' with length: \'" << longestValue << "\'\n";
 }
 
-int main() {
+int main() 
+{
    string input;
    cout << "Enter the line: ";
    cin >> input;

@@ -42,15 +42,15 @@ Myvector<string> handleInputLine(string& inputLine)
 	{
 		if (sym == ' ')
 		{
-			if (!word.empty())  // ��������� �����, ���� ��� �� ������
+			if (!word.empty())  
 			{
 				processedWords.MPUSH(word);
 				word = "";
 			}
 		}
-		else word += sym; // ��������� ������ � �����
+		else word += sym; 
 	}
-	if (!word.empty()) processedWords.MPUSH(word); // ��������� ��������� �����, ���� ��� �� ������
+	if (!word.empty()) processedWords.MPUSH(word); 
 	return processedWords;
 }
 
@@ -72,16 +72,16 @@ int isInDictionary(const string& word, Myvector<string> dictionary)
 	{
 		string dictWord = dictionary.MGET(j);
 
-		// ���� ����� ��������� � ��������� � ������� (������� �� �����������)
+		
 		if (lowerWord == toLower(dictWord))
 		{
-			// �������� �� ������������ ��������
-			if (word == dictWord) return 1;  // ����� ��������� ��������
-			else return 0;  // ����� ���� � �������, �� �������� �����������
+			
+			if (word == dictWord) return 1;  
+			else return 0;  
 		}
 	}
 
-	return 2;  // ����� �� ������� � �������
+	return 2;  
 }
 
 void findWrongWords(Myvector<string> text, Myvector<string> dictionary)
@@ -93,16 +93,16 @@ void findWrongWords(Myvector<string> text, Myvector<string> dictionary)
 	{
 		int checkResult = isInDictionary(text.MGET(i), dictionary);
 
-		// ����� ���� � ������� � �������� ���������
+		
 		if (checkResult == 1) continue;
 
-		// ����� ���� � �������, �� �������� �����������
+		
 		if (checkResult == 0)
 		{
 			incorrectCounter++;
 			incorrectWords.MPUSH(text.MGET(i));
 		}
-		// ����� �� ������� � �������, �� ��������� ��������
+		
 		else if (checkResult == 2 && !isCorrectWord(text.MGET(i)))
 		{
 			incorrectCounter++;

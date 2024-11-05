@@ -56,10 +56,20 @@ void compareGenes(const set<string>& firstChain, const set<string>& secondChain)
 int main()
 {
 	setlocale(LC_ALL, "RU");
-	set<string> test1 = divideGenes("ABBACAB");
-	set<string> test2 = divideGenes("BCABB");
 
-	compareGenes(test1, test2);
+	string input;
+	cout << "Input first genecode: ";
+	getline(cin, input);
+	set<string> first = divideGenes(input);
+	cout << endl;
+
+	input.clear();
+
+	cout << "Input second genecode: ";
+	getline(cin, input);
+	set<string> second = divideGenes(input);
+
+	compareGenes(first, second);
 
 	return 0;
 }
