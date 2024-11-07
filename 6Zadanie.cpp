@@ -1,66 +1,58 @@
-#include <iostream>
-#include <string>
-#include "Hashtable.h"
+#include "Hashtable.h" 
 #include "vector.h"
 
 using namespace std;
 
+void processInput(const string& input) {
+    Hashtable<string, int> hash(10); 
+    Myvector<char> seenChars; // Вектор для отслеживания символов в текущей подстроке
+    string currentSubstring;
+    int length = 0;
+    size_t start = 0; // Начальный индекс новой подстроки при сбросе
 
-void processInput(const string& input) 
-{
+    for (size_t i = 0; i < input.length(); i++) {
+        char ch = input[i];
 
-   Hashtable<string, int> hash(10);
-   Myvector<char> seenChars;
+        // Если символ уже встречался, добавляем текущую подстроку в хеш-таблицу
+        if (seenChars.contains(seenChars, ch)) {
+            if (!currentSubstring.empty()) { 
+                hash[currentSubstring] = length; 
+            }
 
-   string currentSubstring;
-   int length = 0;
+            currentSubstring.clear();
+            length = 0;
+            seenChars = Myvector<char>(); 
 
-   for (char ch : input) 
-   {
+            // Возвращаемся к последней позиции символа ch и начинаем с него новую подстроку
+            i = start; // Устанавливаем i на начальный индекс сброса
+            start++; // Смещаем начальный индекс сброса вправо
+        } else {
+            // Если символ не повторялся, добавляем его в текущую подстроку
+            currentSubstring += ch;
+            seenChars.MPUSH(ch); // Добавляем символ в список встреченных
+            length++;
+        }
+    }
 
-       if (seenChars.contains(seenChars, ch)) 
-       {
+    if (!currentSubstring.empty()) {
+        hash[currentSubstring] = length;
+    }
 
-           if (!currentSubstring.empty()) 
-           {
-               hash[currentSubstring] = length;
-           }
+    hash.print();
+    
+    string longestKey;
+    int longestValue = 0;
+    hash.search_line_and_size(longestKey, longestValue);
 
-           currentSubstring.clear();
-           length = 0;
-           seenChars = Myvector<char>();
-       }
-       else 
-       {
-
-           currentSubstring += ch;
-           seenChars.MPUSH(ch);
-           length++;
-       }
-   }
-
-   if (!currentSubstring.empty()) 
-   {
-       hash[currentSubstring] = length;
-   }
-
-   hash.print();
-
-   string longestKey;
-   int longestValue = 0;
-   hash.search_line_and_size(longestKey, longestValue);
-
-
-   cout << "The longest line: \'" << longestKey << "\' with length: \'" << longestValue << "\'\n";
+    cout << "The longest line: \'" << longestKey << "\' with length: \'" << longestValue << "\'\n";
 }
 
-int main() 
-{
-   string input;
-   cout << "Enter the line: ";
-   cin >> input;
+int main() {
+    string input;
+    cout << "Enter the line: ";
+    cin >> input; 
 
-   processInput(input);
-
-   return 0;
+    processInput(input);
+    
+    return 0;
 }

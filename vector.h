@@ -188,7 +188,7 @@ public:
         {
             if (vec.MGET(i) == value)
             {
-                return true; // ���� �������� �������, ���������� true
+                return true; 
             }
         }
         return false;
